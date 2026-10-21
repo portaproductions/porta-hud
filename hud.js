@@ -27,7 +27,7 @@
       '--hbl:rgba(185,166,217,.35);--hbt:#1A0B33;--hbg:linear-gradient(90deg,#FF4FB4,#B26BFF);--hglow:rgba(255,79,180,.7)}' +
       '.ph.chrome .ttl{background:linear-gradient(180deg,#FFFFFF 0%,#E6E9FF 38%,#8C7BB8 52%,#F2D9FF 70%,#FFFFFF 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 6px rgba(178,107,255,.75))}' +
       /* soft pastel */
-      '.ph.pastel{--t:#4A3B66;--d:#7D6E9C;--tr:rgba(110,90,160,.14);--ok:#5CC9C0;--mid:#F2A86F;--hot:#EE7AAE;--pu:#B59CF0;--scan:rgba(255,255,255,.25);' +
+      '.ph.pastel{--t:#4A3B66;--d:#7D6E9C;--tr:rgba(110,90,160,.14);--ok:#239189;--mid:#D47A26;--hot:#D9468A;--pu:#B59CF0;--scan:rgba(255,255,255,.25);' +
       '--bg:linear-gradient(135deg,#FCE7F3 0%,#EDE4FF 50%,#DDF4FF 100%);--edge:rgba(181,156,240,.55);--glow:rgba(238,122,174,.30);' +
       '--aura:radial-gradient(40% 50% at 15% 0%,rgba(255,182,219,.55),transparent 70%),radial-gradient(40% 50% at 90% 100%,rgba(160,226,255,.55),transparent 70%);' +
       '--hbl:rgba(125,110,156,.35);--hbt:#fff;--hbg:linear-gradient(90deg,#EE7AAE,#B59CF0);--hglow:rgba(238,122,174,.55)}' +
