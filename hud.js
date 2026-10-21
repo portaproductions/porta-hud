@@ -52,6 +52,23 @@
       '--bg:linear-gradient(115deg,#FFD6F0,#D6E4FF,#D6FFF1,#FFF4C8,#F0D6FF,#FFD6F0);--bgs:400% 400%;--ring:linear-gradient(90deg,#FF8AD8,#8AB4FF,#7AF2C8,#FFE07A,#C98AFF,#FF8AD8);--glow:rgba(201,138,255,.45);' +
       '--aura:radial-gradient(50% 60% at 20% 0%,rgba(255,255,255,.7),transparent 70%);--hbl:rgba(43,35,80,.25);--hbt:#fff;--hbg:linear-gradient(90deg,#FF5FB8,#7A5CFF);--hglow:rgba(255,95,184,.55)}' +
       '.ph.holo .ttl{color:#2B2350}' +
+      /* candy backgrounds */
+      '.ph.bg-galaxy{--bg:linear-gradient(160deg,#0B0820,#05040F)}' +
+      '.ph.bg-galaxy:before{inset:-20%;background:radial-gradient(1.2px 1.2px at 12% 22%,#fff 60%,transparent),radial-gradient(1px 1px at 33% 68%,#fff 60%,transparent),radial-gradient(1.4px 1.4px at 58% 18%,#fff 60%,transparent),radial-gradient(1px 1px at 72% 74%,#fff 60%,transparent),radial-gradient(1.2px 1.2px at 88% 36%,#fff 60%,transparent),radial-gradient(1px 1px at 45% 45%,#fff 60%,transparent),radial-gradient(1px 1px at 22% 88%,#fff 60%,transparent),radial-gradient(1.3px 1.3px at 94% 86%,#fff 60%,transparent),' +
+      'radial-gradient(45% 55% at 20% 20%,rgba(255,62,138,.30),transparent 70%),radial-gradient(45% 55% at 85% 80%,rgba(59,199,255,.28),transparent 70%),radial-gradient(35% 45% at 60% 40%,rgba(182,92,255,.22),transparent 70%);animation:phTwinkle 6s ease-in-out infinite alternate}' +
+      '.ph.bg-grid{--bg:linear-gradient(180deg,#150B2E 0%,#2A0B3D 55%,#3D0B3A 100%)}' +
+      '.ph.bg-grid:before{inset:auto -60% -80% -60%;height:160%;background:linear-gradient(rgba(255,62,138,.55) 1px,transparent 1px) 0 0/100% 18px,linear-gradient(90deg,rgba(59,199,255,.45) 1px,transparent 1px) 0 0/24px 100%;' +
+      '-webkit-mask-image:linear-gradient(to top,#000 10%,transparent 75%);mask-image:linear-gradient(to top,#000 10%,transparent 75%);transform-origin:50% 100%;animation:phGrid 2.4s linear infinite}' +
+      '.ph.bg-lava{--bg:#0E0A1C}' +
+      '.ph.bg-lava:before{inset:-30%;filter:blur(18px);background:radial-gradient(28% 34% at 20% 30%,rgba(255,62,138,.75),transparent 70%),radial-gradient(26% 32% at 75% 25%,rgba(255,210,63,.55),transparent 70%),radial-gradient(30% 36% at 60% 80%,rgba(59,199,255,.65),transparent 70%),radial-gradient(24% 30% at 30% 85%,rgba(182,92,255,.7),transparent 70%);animation:phLava 12s ease-in-out infinite alternate}' +
+      '.ph.bg-lava:after{background:linear-gradient(rgba(14,10,28,.35),rgba(14,10,28,.35));mix-blend-mode:normal;animation:none}' +
+      '.ph.bg-swirl{--bg:#0B0818}' +
+      '.ph.bg-swirl:before{inset:-60%;filter:blur(26px);opacity:.75;background:conic-gradient(from 0deg,#FF3E8A,#FFD23F,#3DF5A6,#3BC7FF,#B65CFF,#FF3E8A);animation:phSpin 14s linear infinite}' +
+      '.ph.bg-swirl:after{background:linear-gradient(rgba(11,8,24,.55),rgba(11,8,24,.55));mix-blend-mode:normal;animation:none}' +
+      '@keyframes phTwinkle{from{opacity:.75;transform:translate(-2%,-1%)}to{opacity:1;transform:translate(2%,1%)}}' +
+      '@keyframes phGrid{from{transform:perspective(160px) rotateX(62deg) translateY(0)}to{transform:perspective(160px) rotateX(62deg) translateY(18px)}}' +
+      '@keyframes phLava{0%{transform:translate(-6%,-4%) rotate(0deg) scale(1)}50%{transform:translate(5%,3%) rotate(25deg) scale(1.12)}100%{transform:translate(-3%,5%) rotate(-15deg) scale(.95)}}' +
+      '@keyframes phSpin{to{transform:rotate(360deg)}}' +
       /* motion */
       '@keyframes phFlow{from{background-position:0% 50%,0% 50%}to{background-position:100% 50%,100% 50%}}' +
       '@keyframes phShine{0%{transform:translateX(-100%)}60%,100%{transform:translateX(100%)}}' +
@@ -84,7 +101,7 @@
       return '<button class="meta" data-cmd="status of ' + esc(n) + '">' + esc(n) + ' <b>' + esc(v ? (isNaN(p) ? v : p + '%') : '') + '</b></button>';
     }).join('<span class="meta" style="opacity:.5">  ·  </span>');
     el.innerHTML =
-      '<div class="ph ' + theme + '">' +
+      '<div class="ph ' + theme + (/^(galaxy|grid|lava|swirl)$/.test(d.bg || '') ? ' bg-' + d.bg : '') + '">' +
         '<div style="display:flex;align-items:center;gap:10px">' +
           '<div class="ttl" style="flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">' + esc(d.p || 'This chat') + '</div>' +
           '<button class="hb' + (due ? ' due' : '') + '" data-cmd="handoff" aria-label="Handoff to a new chat">' + (due ? 'New chat' : 'Handoff') + ICON + '</button>' +
