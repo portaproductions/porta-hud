@@ -71,12 +71,13 @@
       '@keyframes phSpin{to{transform:rotate(360deg)}}' +
       /* porta brand */
       '.ph.porta{--t:#F2F5F9;--d:#A9BED2;--tr:rgba(169,190,210,.14);--ok:#7FB6A2;--mid:#D9B26A;--hot:#D9776A;--pu:#A9BED2;--scan:rgba(255,255,255,.03);' +
-      '--bg:linear-gradient(160deg,#0D1522,#0A1019);--ring:linear-gradient(90deg,#D9B26A,#A9BED2,#5E7790,#D9B26A);--glow:rgba(217,178,106,.35);' +
+      '--bg:linear-gradient(160deg,#0D1522,#0A1019);--ring:linear-gradient(90deg,#D9B26A,#A9BED2,#5E7790,#D9B26A);--glow:rgba(217,178,106,.55);' +
       '--hbl:rgba(169,190,210,.35);--hbt:#0A1019;--hbg:linear-gradient(90deg,#E8C98A,#D9B26A);--hglow:rgba(217,178,106,.75)}' +
+      '.ph.porta .gl,.ph.porta .meta{text-shadow:0 1px 3px rgba(10,16,25,.8)}' +
       '.ph.porta .ttl{background:linear-gradient(90deg,#E8C98A,#D9B26A,#A9BED2,#D9B26A);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:phFlow 6s ease-in-out infinite alternate;filter:drop-shadow(0 0 6px rgba(217,178,106,.45))}' +
       '.ph.porta.bg-lava{--bg:linear-gradient(#0A1019,#0A1019)}' +
-      '.ph.porta.bg-lava:before{background:radial-gradient(30% 36% at 20% 30%,rgba(217,178,106,.65),transparent 70%),radial-gradient(28% 34% at 78% 25%,rgba(169,190,210,.45),transparent 70%),radial-gradient(32% 38% at 60% 82%,rgba(94,119,144,.70),transparent 70%),radial-gradient(24% 30% at 28% 86%,rgba(217,178,106,.40),transparent 70%)}' +
-      '.ph.porta.bg-lava:after{background:linear-gradient(rgba(10,16,25,.40),rgba(10,16,25,.40))}' +
+      '.ph.porta.bg-lava:before{background:radial-gradient(30% 36% at 20% 30%,rgba(232,190,110,.95),transparent 70%),radial-gradient(28% 34% at 78% 25%,rgba(169,190,210,.75),transparent 70%),radial-gradient(32% 38% at 60% 82%,rgba(94,140,190,.95),transparent 70%),radial-gradient(24% 30% at 28% 86%,rgba(217,178,106,.70),transparent 70%)}' +
+      '.ph.porta.bg-lava:after{background:linear-gradient(rgba(10,16,25,.28),rgba(10,16,25,.28))}' +
       /* motion */
       '@keyframes phFlow{from{background-position:0% 50%,0% 50%}to{background-position:100% 50%,100% 50%}}' +
       '@keyframes phShine{0%{transform:translateX(-100%)}60%,100%{transform:translateX(100%)}}' +
