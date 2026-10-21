@@ -69,6 +69,14 @@
       '@keyframes phGrid{from{transform:perspective(120px) rotateX(58deg) translateY(0)}to{transform:perspective(120px) rotateX(58deg) translateY(16px)}}' +
       '@keyframes phLava{0%{transform:translate(-6%,-4%) rotate(0deg) scale(1)}50%{transform:translate(5%,3%) rotate(25deg) scale(1.12)}100%{transform:translate(-3%,5%) rotate(-15deg) scale(.95)}}' +
       '@keyframes phSpin{to{transform:rotate(360deg)}}' +
+      /* porta brand */
+      '.ph.porta{--t:#F2F5F9;--d:#A9BED2;--tr:rgba(169,190,210,.14);--ok:#7FB6A2;--mid:#D9B26A;--hot:#D9776A;--pu:#A9BED2;--scan:rgba(255,255,255,.03);' +
+      '--bg:linear-gradient(160deg,#0D1522,#0A1019);--ring:linear-gradient(90deg,#D9B26A,#A9BED2,#5E7790,#D9B26A);--glow:rgba(217,178,106,.35);' +
+      '--hbl:rgba(169,190,210,.35);--hbt:#0A1019;--hbg:linear-gradient(90deg,#E8C98A,#D9B26A);--hglow:rgba(217,178,106,.75)}' +
+      '.ph.porta .ttl{background:linear-gradient(90deg,#E8C98A,#D9B26A,#A9BED2,#D9B26A);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:phFlow 6s ease-in-out infinite alternate;filter:drop-shadow(0 0 6px rgba(217,178,106,.45))}' +
+      '.ph.porta.bg-lava{--bg:linear-gradient(#0A1019,#0A1019)}' +
+      '.ph.porta.bg-lava:before{background:radial-gradient(30% 36% at 20% 30%,rgba(217,178,106,.65),transparent 70%),radial-gradient(28% 34% at 78% 25%,rgba(169,190,210,.45),transparent 70%),radial-gradient(32% 38% at 60% 82%,rgba(94,119,144,.70),transparent 70%),radial-gradient(24% 30% at 28% 86%,rgba(217,178,106,.40),transparent 70%)}' +
+      '.ph.porta.bg-lava:after{background:linear-gradient(rgba(10,16,25,.40),rgba(10,16,25,.40))}' +
       /* motion */
       '@keyframes phFlow{from{background-position:0% 50%,0% 50%}to{background-position:100% 50%,100% 50%}}' +
       '@keyframes phShine{0%{transform:translateX(-100%)}60%,100%{transform:translateX(100%)}}' +
@@ -93,7 +101,7 @@
   var ICON = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>';
   document.querySelectorAll('[data-hud]').forEach(function (el) {
     if (el.dataset.done) return; el.dataset.done = 1;
-    var d = el.dataset, theme = /^(chrome|pastel|sunset|aurora|candy|holo)$/.test(d.theme || '') ? d.theme : 'candy';
+    var d = el.dataset, theme = /^(porta|chrome|pastel|sunset|aurora|candy|holo)$/.test(d.theme || '') ? d.theme : 'porta';
     var c = parseInt(d.c, 10), w = parseInt(d.w, 10), due = c >= 65, wHot = w >= 90;
     var meta = [(d.m || '').split('|').filter(Boolean).join(' + '), d.t ? d.t + ' tokens' : '', d.time || ''].filter(Boolean).map(esc).join('  ·  ');
     var jobs = (d.j || '').split('|').filter(Boolean).map(function (x) {
@@ -101,7 +109,7 @@
       return '<button class="meta" data-cmd="status of ' + esc(n) + '">' + esc(n) + ' <b>' + esc(v ? (isNaN(p) ? v : p + '%') : '') + '</b></button>';
     }).join('<span class="meta" style="opacity:.5">  ·  </span>');
     el.innerHTML =
-      '<div class="ph ' + theme + (/^(galaxy|grid|lava|swirl)$/.test(d.bg || '') ? ' bg-' + d.bg : '') + '">' +
+      '<div class="ph ' + theme + (/^(galaxy|grid|lava|swirl|none)$/.test(d.bg || '') ? (d.bg === 'none' ? '' : ' bg-' + d.bg) : ' bg-lava') + '">' +
         '<div style="display:flex;align-items:center;gap:10px">' +
           '<div class="ttl" style="flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">' + esc(d.p || 'This chat') + '</div>' +
           '<button class="hb' + (due ? ' due' : '') + '" data-cmd="handoff" aria-label="Handoff to a new chat">' + (due ? 'New chat' : 'Handoff') + ICON + '</button>' +
