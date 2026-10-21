@@ -76,8 +76,8 @@
       '.ph.porta .gl,.ph.porta .meta{text-shadow:0 1px 3px rgba(10,16,25,.8)}' +
       '.ph.porta .ttl{background:linear-gradient(90deg,#E8C98A,#D9B26A,#A9BED2,#D9B26A);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:phFlow 6s ease-in-out infinite alternate;filter:drop-shadow(0 0 6px rgba(217,178,106,.45))}' +
       '.ph.porta.bg-lava{--bg:linear-gradient(#0A1019,#0A1019)}' +
-      '.ph.porta.bg-lava:before{background:radial-gradient(30% 36% at 20% 30%,rgba(232,190,110,.95),transparent 70%),radial-gradient(28% 34% at 78% 25%,rgba(169,190,210,.75),transparent 70%),radial-gradient(32% 38% at 60% 82%,rgba(94,140,190,.95),transparent 70%),radial-gradient(24% 30% at 28% 86%,rgba(217,178,106,.70),transparent 70%)}' +
-      '.ph.porta.bg-lava:after{background:linear-gradient(rgba(10,16,25,.28),rgba(10,16,25,.28))}' +
+      '.ph.porta.bg-lava:before{background:radial-gradient(22% 26% at 30% 38%,rgba(232,190,110,.85),transparent 72%),radial-gradient(20% 24% at 72% 36%,rgba(169,190,210,.70),transparent 72%),radial-gradient(24% 28% at 58% 66%,rgba(94,140,190,.90),transparent 72%),radial-gradient(18% 22% at 36% 64%,rgba(217,178,106,.60),transparent 72%)}' +
+      '.ph.porta.bg-lava:after{background:linear-gradient(rgba(10,16,25,.18),rgba(10,16,25,.18))}' +
       /* motion */
       '@keyframes phFlow{from{background-position:0% 50%,0% 50%}to{background-position:100% 50%,100% 50%}}' +
       '@keyframes phShine{0%{transform:translateX(-100%)}60%,100%{transform:translateX(100%)}}' +
