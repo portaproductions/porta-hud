@@ -8,15 +8,17 @@
     st.textContent =
       '.ph{--t:#F2F5F9;--d:#A9BED2;--tr:rgba(169,190,210,.14);--ok:#7FB6A2;--mid:#D9B26A;--hot:#D9776A;--gold:#D9B26A;' +
       'position:relative;overflow:hidden;box-sizing:border-box;width:100%;border-radius:14px;color:var(--t);font-family:Inter,system-ui,sans-serif;' +
-      'border:1.5px solid transparent;background:linear-gradient(160deg,#0D1522,#0A1019) padding-box,linear-gradient(90deg,#D9B26A,#A9BED2,#5E7790,#D9B26A) border-box;background-size:100% 100%,300% 300%;background-repeat:no-repeat;' +
+      'border:1.5px solid transparent;background:linear-gradient(160deg,#0D1522,#0A1019) padding-box,var(--ring,linear-gradient(90deg,#D9B26A,#A9BED2,#5E7790,#D9B26A)) border-box;background-size:100% 100%,300% 300%;background-repeat:no-repeat;' +
       'animation:phBreathe 4s ease-in-out infinite,phFlow 8s ease-in-out infinite alternate}' +
+      '@keyframes phBreathe{0%,100%{box-shadow:0 0 8px var(--glow,rgba(217,178,106,.30))}50%{box-shadow:0 0 18px var(--glow,rgba(217,178,106,.55))}}' +
             '.ph>*{position:relative;z-index:1}' +
       '.ph button{all:unset;cursor:pointer;-webkit-tap-highlight-color:transparent}.ph button:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:6px}.ph button:active{opacity:.7}' +
       '.ph .top{border:0;outline:0;box-shadow:none;background:none;display:flex;align-items:center;gap:9px;width:100%;box-sizing:border-box;padding:9px 12px}' +
       '.ph .pm{width:34px;height:16px;margin:0 -6px;flex:none;background:linear-gradient(110deg,#8E99A8 0%,#F4F7FB 18%,#9AA6B5 32%,#5D6876 46%,#E9EEF4 58%,#FFFFFF 64%,#A7B2C0 76%,#6E7987 90%,#DDE3EA 100%);background-size:250% 100%;-webkit-mask:var(--logo) top center/100% auto no-repeat;mask:var(--logo) top center/100% auto no-repeat;filter:drop-shadow(0 0 3px rgba(255,255,255,.45)) drop-shadow(0 1px 1px rgba(0,0,0,.6));animation:phChrome 3.2s ease-in-out infinite}' +
-      '.ph .ttl{flex:1;min-width:0;font-size:13px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;background:linear-gradient(90deg,#E8C98A,#D9B26A,#A9BED2,#D9B26A);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:phFlow 6s ease-in-out infinite alternate}' +
+      '.ph .ttl{flex:1;min-width:0;font-size:13px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;background:linear-gradient(110deg,#AEB8C5 0%,#FFFFFF 20%,#9AA6B5 36%,#6E7987 48%,#F2F5F9 60%,#FFFFFF 66%,#B4BFCC 80%,#DDE3EA 100%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:phChrome 3.2s ease-in-out infinite}' +
       '.ph .mini{flex:none;font-size:12px;font-weight:700;font-variant-numeric:tabular-nums}' +
       '.ph .chev{flex:none;width:14px;height:14px;color:var(--d);transition:transform .25s}.ph.open .chev{transform:rotate(180deg)}' +
+      '.ph button.nx{display:block;box-sizing:border-box;width:100%}.ph .dn{font-size:11px;line-height:16px;color:var(--d)}.ph .dn i{font-style:normal;color:var(--ok);margin-right:5px}' +
       '.ph .nx{padding:0 12px 9px;margin-top:-3px;font-size:11.5px;line-height:15px;color:var(--d);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.ph .nx b{color:var(--t);font-weight:600}' +
       '.ph .more{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s ease}.ph.open .more{grid-template-rows:1fr}.ph .more>div{overflow:hidden}' +
       '.ph .in{padding:2px 12px 11px}' +
@@ -32,8 +34,7 @@
       '@keyframes phChrome{0%{background-position:100% 0}55%,100%{background-position:0% 0}}' +
       '@keyframes phShine{0%{transform:translateX(-100%)}60%,100%{transform:translateX(100%)}}' +
       '@keyframes phPulse{0%,100%{box-shadow:0 0 8px rgba(217,178,106,.55)}50%{box-shadow:0 0 20px rgba(217,178,106,.95)}}' +
-      '@keyframes phBreathe{0%,100%{box-shadow:0 0 8px rgba(217,178,106,.30)}50%{box-shadow:0 0 18px rgba(217,178,106,.55)}}' +
-      '@media (prefers-reduced-motion:reduce){.ph,.ph *{animation:none!important;transition:none!important}}';
+            '@media (prefers-reduced-motion:reduce){.ph,.ph *{animation:none!important;transition:none!important}}';
     document.head.appendChild(st);
   }
   var still = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -58,8 +59,9 @@
       return '<button class="meta" data-cmd="status of ' + esc(n) + '">' + esc(n) + ' <b>' + esc(v ? (isNaN(p) ? v : p + '%') : '') + '</b></button>';
     }).join('<span class="meta" style="opacity:.5">  ·  </span>');
     var cc = col(c, 50, 65);
+    var mood = isNaN(c) ? '' : c >= 65 ? '--ring:linear-gradient(90deg,#D9776A,#E8A090,#D9776A,#B8574C);--glow:rgba(217,119,106,.55);' : c >= 50 ? '--ring:linear-gradient(90deg,#D9B26A,#E8C98A,#A9BED2,#D9B26A);--glow:rgba(217,178,106,.5);' : '--ring:linear-gradient(90deg,#7FB6A2,#A9BED2,#5E7790,#7FB6A2);--glow:rgba(127,182,162,.4);';
     el.innerHTML =
-      '<div class="ph" style="--logo:url(' + BASE + 'logo.png)">' +
+      '<div class="ph' + (due ? ' open' : '') + '" style="' + mood + '--logo:url(' + BASE + 'logo.png)">' +
         '<button class="top" data-tog aria-expanded="false" aria-label="Show details">' +
           '<span class="pm" aria-hidden="true"></span>' +
           '<span class="ttl">' + esc(d.p || 'This chat') + '</span>' +
@@ -67,12 +69,14 @@
           (isNaN(w) ? '' : '<span class="mini" style="color:' + col(w, 75, 90) + ';font-weight:600;font-size:11px">' + (d.a ? esc(d.a) + ' ' : '') + w + '%wk</span>') +
           (due ? '<span class="hb due" data-cmd="handoff" role="button" aria-label="Handoff to a new chat">New chat' + ARROW + '</span>' : CHEV) +
         '</button>' +
-        (d.n ? '<div class="nx">Next: <b>' + esc(d.n) + '</b></div>' : '') +
+        (d.n ? '<button class="nx" data-cmd="' + esc(d.n) + '" aria-label="Start next step">Next: <b>' + esc(d.n) + '</b> <span style="color:var(--gold)">›</span></button>' : '') +
         '<div class="more"><div><div class="in">' +
           '<div style="display:flex;gap:14px">' +
             gauge('Chat', c, 50, 65, 'explain usage', 65) +
             (isNaN(w) ? '' : gauge((d.a ? d.a + ' ' : '') + 'week', w, 75, 90, wHot ? 'switch to the account with most room' : 'explain usage', 0)) +
           '</div>' +
+          (d.r && !isNaN(w) ? '<div class="meta" style="text-align:right;margin-top:3px">resets in <b>' + esc(d.r) + '</b></div>' : '') +
+          (d.done ? '<div style="margin-top:8px">' + d.done.split('|').filter(Boolean).slice(0, 3).map(function (x) { return '<div class="dn"><i>✓</i>' + esc(x) + '</div>'; }).join('') + '</div>' : '') +
           (meta ? '<div class="meta" style="margin-top:9px">' + meta + '</div>' : '') +
           (isNaN(sv) ? '' : '<div class="meta" style="margin-top:3px">Saved by GPT/Ollama: <b style="color:var(--ok)">' + sv + '%</b> of the work</div>') +
           (jobs ? '<div style="margin-top:3px;display:flex;flex-wrap:wrap;gap:0 4px">' + jobs + '</div>' : '') +
@@ -92,6 +96,7 @@
       })(performance.now());
     }
     var tog = el.querySelector('[data-tog]');
+    if (due) { tog.setAttribute('aria-expanded', 'true'); play(); }
     tog.onclick = function (ev) {
       if (ev.target.closest('[data-cmd]')) return;
       var open = ph.classList.toggle('open'); tog.setAttribute('aria-expanded', open); if (open) play();
