@@ -15,8 +15,8 @@ for line in open(f, errors='ignore'):
     if ts and first is None: first = ts
     u = (d.get('message') or {}).get('usage') if isinstance(d.get('message'), dict) else None
     if u and not d.get('isSidechain'):
-        ctx = u.get('input_tokens', 0) + u.get('cache_read_input_tokens', 0) + u.get('cache_creation_input_tokens', 0)
-        out += u.get('output_tokens', 0)
+        ctx = (u.get('input_tokens') or 0) + (u.get('cache_read_input_tokens') or 0) + (u.get('cache_creation_input_tokens') or 0)
+        out += (u.get('output_tokens') or 0)
 pct = round(ctx * 100 / WIN)
 k = lambda n: f'{n/1000:.0f}K' if n < 1e6 else f'{n/1e6:.2f}M'
 el = ''
