@@ -81,7 +81,7 @@
       '.ph.porta.bg-lava:after{background:linear-gradient(rgba(10,16,25,.18),rgba(10,16,25,.18))}' +
       /* photo background */
       '.ph.bg-photo{--bg:linear-gradient(#0A1019,#0A1019)}' +
-      '.ph.bg-photo:before{inset:0;background:linear-gradient(115deg,rgba(217,178,106,.30) 0%,rgba(10,16,25,0) 45%,rgba(94,140,190,.35) 100%),linear-gradient(180deg,rgba(10,16,25,.45) 0%,rgba(10,16,25,.62) 55%,rgba(10,16,25,.85) 100%),var(--photo,none) center 22% / cover no-repeat;animation:phKen 24s ease-in-out infinite alternate}' +
+      '.ph.bg-photo:before{inset:0;background:linear-gradient(115deg,rgba(217,178,106,.30) 0%,rgba(10,16,25,0) 45%,rgba(94,140,190,.35) 100%),linear-gradient(180deg,rgba(10,16,25,.45) 0%,rgba(10,16,25,.62) 55%,rgba(10,16,25,.85) 100%),var(--photo,none) center 42% / cover no-repeat;animation:phKen 24s ease-in-out infinite alternate}' +
       '.ph.bg-photo:after{background:url("data:image/svg+xml;utf8,<svg xmlns=%27http://www.w3.org/2000/svg%27 width=%27160%27 height=%27160%27><filter id=%27n%27><feTurbulence type=%27fractalNoise%27 baseFrequency=%27.9%27 numOctaves=%272%27 stitchTiles=%27stitch%27/><feColorMatrix values=%270 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .55 0%27/></filter><rect width=%27100%25%27 height=%27100%25%27 filter=%27url(%23n)%27/></svg>") 0 0/160px 160px,repeating-linear-gradient(0deg,rgba(255,255,255,.05) 0 1px,transparent 1px 3px);opacity:.35;mix-blend-mode:overlay;animation:phGrain .6s steps(3) infinite}' +
       '.ph.bg-photo .gl,.ph.bg-photo .meta{text-shadow:0 1px 4px rgba(10,16,25,.95)}' +
       '@keyframes phGrain{0%{background-position:0 0,0 0}33%{background-position:-40px 25px,0 0}66%{background-position:30px -35px,0 0}}' +
