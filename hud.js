@@ -118,7 +118,7 @@
       return '<button class="meta" data-cmd="status of ' + esc(n) + '">' + esc(n) + ' <b>' + esc(v ? (isNaN(p) ? v : p + '%') : '') + '</b></button>';
     }).join('<span class="meta" style="opacity:.5">  ·  </span>');
     el.innerHTML =
-      '<div class="ph ' + theme + (/^(galaxy|grid|lava|swirl|photo|none)$/.test(d.bg || '') ? (d.bg === 'none' ? '' : ' bg-' + d.bg) : ' bg-photo') + '" style="--photo:url(' + BASE + 'IMG_0421.JPG)">' +
+      '<div class="ph ' + theme + (/^(galaxy|grid|lava|swirl|photo|none)$/.test(d.bg || '') ? (d.bg === 'none' ? '' : ' bg-' + d.bg) : '') + '" style="--photo:url(' + BASE + 'IMG_0421.JPG)">' +
         '<div style="display:flex;align-items:center;gap:10px">' +
           '<div class="ttl" style="flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">' + esc(d.p || 'This chat') + '</div>' +
           '<button class="hb' + (due ? ' due' : '') + '" data-cmd="handoff" aria-label="Handoff to a new chat">' + (due ? 'New chat' : 'Handoff') + ICON + '</button>' +
