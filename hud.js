@@ -14,7 +14,7 @@
       '.ph>*{position:relative;z-index:1}' +
       '.ph button{all:unset;cursor:pointer;-webkit-tap-highlight-color:transparent}.ph button:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:6px}.ph button:active{opacity:.7}' +
       '.ph .top{display:flex;align-items:center;gap:9px;width:100%;box-sizing:border-box;padding:9px 12px}' +
-      '.ph .pm{width:34px;height:16px;margin:0 -6px;flex:none;background:var(--gold);-webkit-mask:var(--logo) top center/100% auto no-repeat;mask:var(--logo) top center/100% auto no-repeat;filter:drop-shadow(0 0 4px rgba(217,178,106,.6))}' +
+      '.ph .pm{width:34px;height:16px;margin:0 -6px;flex:none;background:linear-gradient(110deg,#8E99A8 0%,#F4F7FB 18%,#9AA6B5 32%,#5D6876 46%,#E9EEF4 58%,#FFFFFF 64%,#A7B2C0 76%,#6E7987 90%,#DDE3EA 100%);background-size:250% 100%;-webkit-mask:var(--logo) top center/100% auto no-repeat;mask:var(--logo) top center/100% auto no-repeat;filter:drop-shadow(0 0 3px rgba(255,255,255,.45)) drop-shadow(0 1px 1px rgba(0,0,0,.6));animation:phChrome 3.2s ease-in-out infinite}' +
       '.ph .ttl{flex:1;min-width:0;font-size:13px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;background:linear-gradient(90deg,#E8C98A,#D9B26A,#A9BED2,#D9B26A);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:phFlow 6s ease-in-out infinite alternate}' +
       '.ph .mini{flex:none;font-size:12px;font-weight:700;font-variant-numeric:tabular-nums}' +
       '.ph .chev{flex:none;width:14px;height:14px;color:var(--d);transition:transform .25s}.ph.open .chev{transform:rotate(180deg)}' +
@@ -30,6 +30,7 @@
       '.ph .hb{display:flex;align-items:center;gap:5px;height:26px;padding:0 10px;border-radius:13px;font-size:11px;font-weight:700;flex:none;color:var(--d);box-shadow:inset 0 0 0 1px rgba(169,190,210,.35)}' +
       '.ph .hb.due{color:#0A1019;background:linear-gradient(90deg,#E8C98A,#D9B26A);box-shadow:0 0 14px rgba(217,178,106,.75);animation:phPulse 1.8s ease-in-out infinite}' +
       '@keyframes phFlow{from{background-position:0% 50%,0% 50%}to{background-position:100% 50%,100% 50%}}' +
+      '@keyframes phChrome{0%{background-position:100% 0}55%,100%{background-position:0% 0}}' +
       '@keyframes phShine{0%{transform:translateX(-100%)}60%,100%{transform:translateX(100%)}}' +
       '@keyframes phPulse{0%,100%{box-shadow:0 0 8px rgba(217,178,106,.55)}50%{box-shadow:0 0 20px rgba(217,178,106,.95)}}' +
       '@keyframes phBreathe{0%,100%{box-shadow:0 0 8px rgba(217,178,106,.30)}50%{box-shadow:0 0 18px rgba(217,178,106,.55)}}' +
