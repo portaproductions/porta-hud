@@ -1,4 +1,5 @@
 (function () {
+  var S = document.currentScript, BASE = S && S.src ? S.src.replace(/[^\/]*$/, '') : 'https://cdn.jsdelivr.net/gh/portaproductions/porta-hud@main/';
   if (!document.getElementById('porta-hud-css')) {
     var F = document.createElement('link'); F.rel = 'stylesheet';
     F.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&display=swap';
@@ -78,6 +79,11 @@
       '.ph.porta.bg-lava{--bg:linear-gradient(#0A1019,#0A1019)}' +
       '.ph.porta.bg-lava:before{background:radial-gradient(22% 26% at 30% 38%,rgba(232,190,110,.85),transparent 72%),radial-gradient(20% 24% at 72% 36%,rgba(169,190,210,.70),transparent 72%),radial-gradient(24% 28% at 58% 66%,rgba(94,140,190,.90),transparent 72%),radial-gradient(18% 22% at 36% 64%,rgba(217,178,106,.60),transparent 72%)}' +
       '.ph.porta.bg-lava:after{background:linear-gradient(rgba(10,16,25,.18),rgba(10,16,25,.18))}' +
+      /* photo background */
+      '.ph.bg-photo{--bg:linear-gradient(#0A1019,#0A1019)}' +
+      '.ph.bg-photo:before{inset:0;background:linear-gradient(90deg,rgba(10,16,25,.97) 30%,rgba(10,16,25,.62) 65%,rgba(10,16,25,.35) 100%),var(--photo,none) right 30% / auto 135% no-repeat;animation:phKen 24s ease-in-out infinite alternate}' +
+      '.ph.bg-photo:after{opacity:.5}' +
+      '@keyframes phKen{from{transform:scale(1)}to{transform:scale(1.06) translateX(-2%)}}' +
       /* motion */
       '@keyframes phFlow{from{background-position:0% 50%,0% 50%}to{background-position:100% 50%,100% 50%}}' +
       '@keyframes phShine{0%{transform:translateX(-100%)}60%,100%{transform:translateX(100%)}}' +
@@ -110,7 +116,7 @@
       return '<button class="meta" data-cmd="status of ' + esc(n) + '">' + esc(n) + ' <b>' + esc(v ? (isNaN(p) ? v : p + '%') : '') + '</b></button>';
     }).join('<span class="meta" style="opacity:.5">  ·  </span>');
     el.innerHTML =
-      '<div class="ph ' + theme + (/^(galaxy|grid|lava|swirl|none)$/.test(d.bg || '') ? (d.bg === 'none' ? '' : ' bg-' + d.bg) : ' bg-lava') + '">' +
+      '<div class="ph ' + theme + (/^(galaxy|grid|lava|swirl|photo|none)$/.test(d.bg || '') ? (d.bg === 'none' ? '' : ' bg-' + d.bg) : ' bg-photo') + '" style="--photo:url(' + BASE + 'wife.jpg)">' +
         '<div style="display:flex;align-items:center;gap:10px">' +
           '<div class="ttl" style="flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">' + esc(d.p || 'This chat') + '</div>' +
           '<button class="hb' + (due ? ' due' : '') + '" data-cmd="handoff" aria-label="Handoff to a new chat">' + (due ? 'New chat' : 'Handoff') + ICON + '</button>' +
