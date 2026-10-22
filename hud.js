@@ -51,7 +51,7 @@
   var ARROW = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>';
   var CHEV = '<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
   document.querySelectorAll('[data-hud]').forEach(function (el) {
-    if (el.dataset.done) return; el.dataset.done = 1;
+    if (el.dataset.phr) return; el.dataset.phr = 1;
     var d = el.dataset, c = parseInt(d.c, 10), w = parseInt(d.w, 10), sv = parseInt(d.s, 10), due = c >= 65, wHot = w >= 90;
     var meta = [(d.m || '').split('|').filter(Boolean).join(' + '), d.t ? d.t + ' tokens' : '', d.time || ''].filter(Boolean).map(esc).join('  ·  ');
     var jobs = (d.j || '').split('|').filter(Boolean).map(function (x) {
@@ -76,7 +76,7 @@
             (isNaN(w) ? '' : gauge((d.a ? d.a + ' ' : '') + 'week', w, 75, 90, wHot ? 'switch to the account with most room' : 'explain usage', 0)) +
           '</div>' +
           (d.r && !isNaN(w) ? '<div class="meta" style="text-align:right;margin-top:3px">resets in <b>' + esc(d.r) + '</b></div>' : '') +
-          (d.done ? '<div style="margin-top:8px">' + d.done.split('|').filter(Boolean).slice(0, 3).map(function (x) { return '<div class="dn"><i>✓</i>' + esc(x) + '</div>'; }).join('') + '</div>' : '') +
+          (d.fin ? '<div style="margin-top:8px">' + d.fin.split('|').filter(Boolean).slice(0, 3).map(function (x) { return '<div class="dn"><i>✓</i>' + esc(x) + '</div>'; }).join('') + '</div>' : '') +
           (meta ? '<div class="meta" style="margin-top:9px">' + meta + '</div>' : '') +
           (isNaN(sv) ? '' : '<div class="meta" style="margin-top:3px">Saved by GPT/Ollama: <b style="color:var(--ok)">' + sv + '%</b> of the work</div>') +
           (jobs ? '<div style="margin-top:3px;display:flex;flex-wrap:wrap;gap:0 4px">' + jobs + '</div>' : '') +
